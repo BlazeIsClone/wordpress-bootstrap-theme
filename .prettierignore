@@ -1,4 +1,7 @@
+# Built files
 theme-base/assets/dist/
+
+# Core files
 wp-app/
 
 # All php files
@@ -7,6 +10,7 @@ wp-app/
 # Dependencies
 vendor/
 node_modules/
+theme-base/assets/src/styles/vendors/
 
 # Log files
 *.cache
