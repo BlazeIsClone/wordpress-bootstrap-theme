@@ -4,13 +4,18 @@ package-lock.json
 
 # Core
 wp-app/
+!wp-app/.gitkeep
 
 # Backups
 wp-data/
+!wp-data/.gitkeep
+
 wp-uploads/
+!wp-uploads/.gitkeep
 
 # Distribution files
 theme-base/assets/dist
+!theme-base/assets/dist/.gitkeep
 
 # Log files
 *.cache
