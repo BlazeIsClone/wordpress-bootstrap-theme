@@ -9,7 +9,7 @@ services:
     volumes:
       - ./config/php.conf.ini:/usr/local/etc/php/conf.d/conf.ini
       - ./wp-app:/var/www/html
-      - ./theme-base/:/var/www/html/wp-content/themes/theme-base
+      - ./wp-theme/:/var/www/html/wp-content/themes/wp-theme
     environment:
       WORDPRESS_DB_HOST: db
       WORDPRESS_DB_NAME: '${DB_NAME}'

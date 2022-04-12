@@ -9,7 +9,7 @@ module.exports = {
 		rules: [
 			{
 				test: /\.js?$/,
-				include: [path.resolve('./theme-base/assets/js')],
+				include: [path.resolve('./wp-theme/assets/js')],
 				loader: 'babel-loader',
 			},
 		],

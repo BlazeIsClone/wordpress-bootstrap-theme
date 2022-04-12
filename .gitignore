@@ -14,8 +14,8 @@ wp-uploads/*
 !wp-uploads/.gitkeep
 
 # Distribution files
-theme-base/assets/dist/*
-!theme-base/assets/dist/.gitkeep
+wp-theme/assets/dist/*
+!wp-theme/assets/dist/.gitkeep
 
 # Log files
 *.cache

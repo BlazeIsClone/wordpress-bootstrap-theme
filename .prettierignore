@@ -1,5 +1,5 @@
 # Built files
-theme-base/assets/dist/
+wp-theme/assets/dist/
 
 # Core files
 wp-app/
@@ -10,7 +10,7 @@ wp-app/
 # Dependencies
 vendor/
 node_modules/
-theme-base/assets/src/styles/vendors/
+wp-theme/assets/src/styles/vendors/
 
 # Log files
 *.cache
