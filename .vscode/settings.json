@@ -1,4 +1,5 @@
 {
+	"php-cs-fixer.formatHtml": true,
 	"search.exclude": {
 		"**/.git": true,
 		"**/node_modules": true,

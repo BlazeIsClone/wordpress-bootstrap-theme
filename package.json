@@ -46,6 +46,7 @@
 	},
 	"dependencies": {
 		"@babel/core": "^7.17.9",
-		"@babel/preset-env": "^7.16.11"
+		"@babel/preset-env": "^7.16.11",
+		"bootstrap": "^5.1.3"
 	}
 }

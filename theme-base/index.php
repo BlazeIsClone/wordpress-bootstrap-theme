@@ -12,6 +12,11 @@
  */
 get_header(); ?>
 
-<h1> Wordprss Custom Bootstrap Theme index.php</h1>
+<div class="container index py-5">
+  <h1>WordPrss Custom Bootstrap Theme</h1>
+  <p>Edit index.php</p>
+  <a href="<?php echo admin_url() ?>"
+    class="btn btn-primary mt-2">Admin Dashboard</a>
+</div>
 
-<?php get_footer(); ?>
+<?php get_footer();

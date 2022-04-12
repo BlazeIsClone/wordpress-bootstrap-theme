@@ -59,6 +59,7 @@ $includes = [
     'plugins-register',
     'acf-local-json',
     'acf-options-page',
+    'admin-bar-remove',
     'admin-login-logo',
     'admin-favicon',
     'svg',

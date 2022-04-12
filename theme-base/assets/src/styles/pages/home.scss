@@ -1,7 +1,10 @@
 @import '../config/index';
 
-body {
+.index {
 	h1 {
 		font-family: 'Roboto Medium';
+	}
+	a {
+		background-color: $primary-color;
 	}
 }
