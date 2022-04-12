@@ -12,23 +12,23 @@ const webpackconfig = require('./webpack.config.js');
 const webpackstream = require('webpack-stream');
 
 // BrowserSync
-function browserSync(done) {
+const browserSync = done => {
 	browsersync.init({
 		proxy: 'localhost',
 		notify: false,
 	});
 	done();
-}
+};
 
 // BrowserSync Reload
-function browserSyncReload(done) {
+const browserSyncReload = done => {
 	browsersync.reload();
 	done();
-}
+};
 
 // CSS task
-function css() {
-	return gulp
+const css = () =>
+	gulp
 		.src('./theme-base/assets/src/styles/**/*.scss')
 		.pipe(cache.clear())
 		.pipe(plumber())
@@ -38,45 +38,43 @@ function css() {
 		.pipe(postcss([autoprefixer(), cssnano()]))
 		.pipe(gulp.dest('./theme-base/assets/dist/css/'))
 		.pipe(browsersync.stream());
-}
 
 // Transpile, concatenate and minify scripts
-function scripts() {
-	return gulp
+const scripts = () =>
+	gulp
 		.src(['./theme-base/assets/src/scripts/**/*'])
 		.pipe(cache.clear())
 		.pipe(plumber())
 		.pipe(webpackstream(webpackconfig, webpack))
 		.pipe(gulp.dest('./theme-base/assets/dist/js/'))
 		.pipe(browsersync.stream());
-}
 
-function fonts() {
+// Build fonts
+const fonts = () =>
 	gulp
 		.src('./theme-base/assets/src/fonts/**/*.{ttf,woff,eot,otf,svg}')
 		.pipe(cache.clear())
 		.pipe(plumber())
 		.pipe(gulp.dest('./theme-base/assets/dist/fonts/'))
 		.pipe(browsersync.stream());
-}
 
-function images() {
+// Build fonts
+const images = () =>
 	gulp
 		.src('./theme-base/assets/src/images/**/*.{png,jpg,jpeg,webp,ico,svg}')
 		.pipe(cache.clear())
 		.pipe(plumber())
 		.pipe(gulp.dest('./theme-base/assets/dist/images/'))
 		.pipe(browsersync.stream());
-}
 
 // Watch files
-function watchFiles() {
+const watchFiles = () => {
 	gulp.watch('./theme-base/assets/src/styles/**/*', css);
 	gulp.watch('./theme-base/assets/src/scripts/**/*', scripts);
 	gulp.watch('./theme-base/assets/src/fonts/**/*', fonts);
 	gulp.watch('./theme-base/assets/src/images/**/*', images);
 	gulp.watch('./theme-base/**/*', browserSyncReload);
-}
+};
 
 // define complex tasks
 const js = gulp.series(scripts);
