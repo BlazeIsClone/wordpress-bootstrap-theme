@@ -13,7 +13,9 @@
 get_header(); ?>
 
 <div class="container index py-5">
-  <h1>WordPrss Custom Bootstrap Theme</h1>
+  <img class="mb-3"
+    src="<?php echo THEME_THEMEROOT . '/assets/src/images/image.png';  ?>" />
+  <h1>Theme Ready!</h1>
   <p>Edit index.php</p>
   <a href="<?php echo admin_url(); ?>"
     class="btn btn-primary mt-2">Admin Dashboard</a>
