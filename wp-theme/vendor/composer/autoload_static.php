@@ -7,24 +7,88 @@ namespace Composer\Autoload;
 class ComposerStaticInit9d4130ae6b87b529a26250af26c1f120
 {
     public static $files = array (
+        '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
+        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
+        '25072dd6e2470089de65ae7bf11d3109' => __DIR__ . '/..' . '/symfony/polyfill-php72/bootstrap.php',
         'a5f882d89ab791a139cd2d37e50cdd80' => __DIR__ . '/..' . '/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php',
     );
 
     public static $prefixLengthsPsr4 = array (
+        'T' => 
+        array (
+            'Twig\\' => 5,
+            'Timber\\' => 7,
+        ),
+        'S' => 
+        array (
+            'Symfony\\Polyfill\\Php72\\' => 23,
+            'Symfony\\Polyfill\\Mbstring\\' => 26,
+            'Symfony\\Polyfill\\Ctype\\' => 23,
+        ),
         'P' => 
         array (
             'PostTypes\\' => 10,
         ),
+        'C' => 
+        array (
+            'Composer\\Installers\\' => 20,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'Twig\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/twig/twig/src',
+        ),
+        'Timber\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/timber/timber/lib',
+        ),
+        'Symfony\\Polyfill\\Php72\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-php72',
+        ),
+        'Symfony\\Polyfill\\Mbstring\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
+        ),
+        'Symfony\\Polyfill\\Ctype\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
+        ),
         'PostTypes\\' => 
         array (
             0 => __DIR__ . '/..' . '/jjgrainger/posttypes/src',
         ),
+        'Composer\\Installers\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers',
+        ),
+    );
+
+    public static $fallbackDirsPsr4 = array (
+        0 => __DIR__ . '/..' . '/twig/cache-extension/lib',
+    );
+
+    public static $prefixesPsr0 = array (
+        'T' => 
+        array (
+            'Twig_' => 
+            array (
+                0 => __DIR__ . '/..' . '/twig/twig/lib',
+            ),
+        ),
+        'R' => 
+        array (
+            'Routes' => 
+            array (
+                0 => __DIR__ . '/..' . '/upstatement/routes',
+            ),
+        ),
     );
 
     public static $classMap = array (
+        'AltoRouter' => __DIR__ . '/..' . '/altorouter/altorouter/AltoRouter.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
 
@@ -33,6 +97,8 @@ class ComposerStaticInit9d4130ae6b87b529a26250af26c1f120
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit9d4130ae6b87b529a26250af26c1f120::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit9d4130ae6b87b529a26250af26c1f120::$prefixDirsPsr4;
+            $loader->fallbackDirsPsr4 = ComposerStaticInit9d4130ae6b87b529a26250af26c1f120::$fallbackDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit9d4130ae6b87b529a26250af26c1f120::$prefixesPsr0;
             $loader->classMap = ComposerStaticInit9d4130ae6b87b529a26250af26c1f120::$classMap;
 
         }, null, ClassLoader::class);

@@ -44,7 +44,7 @@ define(
 define(
     'THEME_PLUGIN_ACTIVATION_PLUGINS',
     get_stylesheet_directory() .
-    '/includes/plugin-activation/plugins/'
+    '/includes/required-plugins/'
 );
 
 /* --------------------------- ASSETS IMPORT --------------------------- */
@@ -55,6 +55,7 @@ require __DIR__ . '/vendor/autoload.php';
 // Define required functions to include
 $includes = [
     'enqueue',
+    'timber-initialize',
     'theme-support',
     'plugins-register',
     'acf-local-json',

@@ -10,15 +10,18 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  */
-get_header(); ?>
+get_header();
 
-<div class="container index py-5">
-  <img class="mb-3"
-    src="<?php echo THEME_THEMEROOT . '/assets/src/images/image.png'; ?>" />
-  <h1>Theme Ready!</h1>
-  <p>Edit index.php</p>
-  <a href="<?php echo admin_url(); ?>"
-    class="btn btn-primary mt-2">Admin Dashboard</a>
-</div>
+use Timber\Timber;
 
-<?php get_footer();
+$context = Timber::context();
+
+$context['title'] = 'Theme Ready!';
+$context['paragraph'] = 'Edit index.php';
+$context['button'] = 'Admin Dashboard';
+$context['image'] = THEME_THEMEROOT . '/assets/src/images/image.png';
+$context['adminUrl'] = admin_url();
+
+Timber::render('templates/index.twig', $context);
+
+get_footer();

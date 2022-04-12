@@ -1,6 +1,12 @@
 {
 	"require": {
 		"jjgrainger/posttypes": "^2.1",
-		"tgmpa/tgm-plugin-activation": "^2.6"
+		"tgmpa/tgm-plugin-activation": "^2.6",
+		"timber/timber": "^1.19"
+	},
+	"config": {
+		"allow-plugins": {
+			"composer/installers": true
+		}
 	}
 }
