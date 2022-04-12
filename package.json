@@ -10,7 +10,7 @@
 		"prestart": "docker-compose up -d",
 		"start": "gulp",
 		"stop": "docker-compose down",
-		"backup:db": "sudo bash backup-db.sh",
+		"backup:database": "sudo bash backup-database.sh",
 		"backup:uploads": "sudo bash backup-uploads.sh",
 		"format": "npx prettier --write .",
 		"expose": "./localtunnel.bin tunnel --url http://localhost:3000"
