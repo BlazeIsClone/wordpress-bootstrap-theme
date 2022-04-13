@@ -12,6 +12,7 @@
 		"stop": "docker-compose down",
 		"backup:database": "sudo bash backup-database.sh",
 		"backup:uploads": "sudo bash backup-uploads.sh",
+		"backup": "npm run backup:database && npm run backup:uploads",
 		"format": "npx prettier --write .",
 		"expose": "./localtunnel.bin tunnel --url http://localhost:3000"
 	},

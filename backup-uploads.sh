@@ -12,3 +12,5 @@ echo 'Creating zip file'
 sleep 2
 
 zip -r $_file wp-uploads -x wp-uploads/.gitkeep
+
+exit 0;
