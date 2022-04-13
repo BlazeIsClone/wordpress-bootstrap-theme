@@ -54,6 +54,7 @@ require __DIR__ . '/vendor/autoload.php';
 
 // Define required functions to include
 $includes = [
+    'head-cleanup',
     'enqueue',
     'timber-initialize',
     'theme-support',

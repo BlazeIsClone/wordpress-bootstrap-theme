@@ -1,3 +1,5 @@
 ## No README For Now
 
-production check 2
+install php
+install composer
+sudo apt install zip unzip
