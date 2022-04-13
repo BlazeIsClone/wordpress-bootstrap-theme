@@ -30,3 +30,11 @@ if (! class_exists('Timber')) {
 
     return;
 }
+
+/*
+ * Sets the directories to find .twig files
+ */
+
+use Timber\Timber;
+
+Timber::$dirname = ['templates'];

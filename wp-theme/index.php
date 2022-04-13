@@ -22,6 +22,6 @@ $context['button'] = 'Admin Dashboard';
 $context['image'] = THEME_THEMEROOT . '/assets/src/images/image.png';
 $context['adminUrl'] = admin_url();
 
-Timber::render('templates/index.twig', $context);
+Timber::render('index.twig', $context);
 
 get_footer();
