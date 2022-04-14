@@ -1,4 +1,4 @@
-name: Production
+name: Production Continuous Delivery Pipeline
 on:
   push:
     branches: [production]
@@ -17,8 +17,8 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             docker ps
-            cd /root/www && docker-compose down
-            cd /root/www && docker-compose rm -f
+            cd ${{ secrets.SERVER_PATH }} && docker-compose down
+            cd ${{ secrets.SERVER_PATH }} && docker-compose rm -f
             
   Push:
     runs-on: ubuntu-latest
@@ -27,7 +27,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Pusing Repository
         env:
-          DESTINATION: '${{ secrets.USERNAME }}@${{ secrets.HOSTNAME }}:/root/www'
+          DESTINATION: '${{ secrets.USERNAME }}@${{ secrets.HOSTNAME }}:${{ secrets.SERVER_PATH }}'
           DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
         run: |
           echo "${{ env.DEPLOY_KEY }}" > deploy_key
@@ -54,4 +54,4 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             docker ps
-            cd /root/www && docker-compose up -d
+            cd ${{ secrets.SERVER_PATH }} && docker-compose up -d
