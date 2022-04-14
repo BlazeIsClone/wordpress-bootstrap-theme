@@ -1,8 +1,9 @@
 name: Production
-on: [workflow_dispatch]
+on:
+  push:
+    branches: [production]
 
 jobs:
-
   Prepare:
     name: Remove existing Docker Containers
     runs-on: ubuntu-latest
