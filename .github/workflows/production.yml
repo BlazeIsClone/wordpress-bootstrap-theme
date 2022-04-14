@@ -5,7 +5,7 @@ on:
 
 jobs:
   Prepare:
-    name: Prepareing Remote Server
+    name: Prepare Remote Server
     runs-on: ubuntu-latest
     steps:
       - name: Unmounting running docker containers
