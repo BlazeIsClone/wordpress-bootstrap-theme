@@ -20,7 +20,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: type=sha
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/wordpress-bootstrap-theme:latest
         
   Boot-Container:
     name: Deploy Build
