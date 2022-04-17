@@ -1,17 +1,17 @@
 version: '2'
 
 services:
-  nginx-proxy:
-  image: jwilder/nginx-proxy
-  ports:
-    - 80:80
-  volumes:
-    - /var/run/docker.sock:/tmp/docker.sock
+  proxy:
+    image: nginxproxy/nginx-proxy
+    ports:
+      - '8080:80'
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
 
   wordpress:
     image: wordpress:latest
     ports:
-      - 80:80
+      - '80:80'
     volumes:
       - ./config/php.conf.ini:/usr/local/etc/php/conf.d/conf.ini
       - ./wp-app:/var/www/html
@@ -20,7 +20,7 @@ services:
       WORDPRESS_DB_HOST: db
       WORDPRESS_DB_NAME: '${DB_NAME}'
       WORDPRESS_DB_USER: root
-      WORDPRESS_DB_PASSWORD: ${DB_ROOT_PASSWORD}
+      WORDPRESS_DB_PASSWORD: '${DB_ROOT_PASSWORD}'
       VIRTUAL_HOST: wordpress.blazeclone.xyz
     depends_on:
       - db
@@ -28,10 +28,10 @@ services:
   db:
     image: mariadb
     ports:
-      - 3306:3306
+      - '3306:3306'
     environment:
       db: '${DB_NAME}'
-      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MARIADB_ROOT_PASSWORD: '${DB_ROOT_PASSWORD}'
     volumes:
       - ./wp-data:/docker-entrypoint-initdb.d
       - db:/var/lib/mysql
