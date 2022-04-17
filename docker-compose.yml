@@ -17,32 +17,32 @@ services:
       - ./wp-app:/var/www/html
       - ./wp-theme/:/var/www/html/wp-content/themes/wp-theme
     environment:
-      WORDPRESS_DB_HOST: database
+      WORDPRESS_DB_HOST: db
       WORDPRESS_DB_NAME: '${DB_NAME}'
       WORDPRESS_DB_USER: root
       WORDPRESS_DB_PASSWORD: '${DB_ROOT_PASSWORD}'
     depends_on:
-      - database
+      - db
 
-  database:
+  db:
     image: mariadb
     ports:
       - '3306:3306'
     environment:
-      MARIADB_DATABASE: '${DB_NAME}'
+      db: '${DB_NAME}'
       MARIADB_ROOT_PASSWORD: '${DB_ROOT_PASSWORD}'
     volumes:
       - ./wp-data:/docker-entrypoint-initdb.d
-      - database:/var/lib/mysql
+      - db:/var/lib/mysql
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     ports:
       - ${LOCAL_PORT_PHPMYADMIN}:80
     environment:
-      - VIRTUAL_HOST=phpmyadmin.blazeclone.xyz
+      - 'VIRTUAL_HOST=phpmyadmin.blazeclone.xyz'
     links:
-      - database:database
+      - db:db
 
 volumes:
-  database:
+  db:
