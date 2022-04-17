@@ -3,7 +3,6 @@ version: '2'
 services:
   wp:
     image: wordpress:latest
-    domainname: ${DOMAIN}
     ports:
       - '80:80'
     volumes:
