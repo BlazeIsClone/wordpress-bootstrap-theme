@@ -1,14 +1,14 @@
-name: Production
+name: Production Continuous Delivery Pipeline
 on:
   push:
     branches: [production]
 
 jobs:
   Prepare:
-    name: Remove existing Docker Containers
+    name: Prepare Remote Server
     runs-on: ubuntu-latest
     steps:
-      - name: stopping docker container
+      - name: Unmounting running docker containers
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOSTNAME }}
@@ -17,17 +17,18 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             docker ps
-            cd /root/www && docker-compose down
-            cd /root/www && docker-compose rm -f
+            cd ${{ secrets.SERVER_PATH }} && docker-compose down
+            cd ${{ secrets.SERVER_PATH }} && docker-compose rm -f
 
   Push:
+    name: Push Repository To Remote Server
     runs-on: ubuntu-latest
     needs: [Prepare]
     steps:
       - uses: actions/checkout@v2
-      - name: Pusing Repository
+      - name: Syncing with ssh
         env:
-          DESTINATION: '${{ secrets.USERNAME }}@${{ secrets.HOSTNAME }}:/root/www'
+          DESTINATION: '${{ secrets.USERNAME }}@${{ secrets.HOSTNAME }}:${{ secrets.SERVER_PATH }}'
           DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
         run: |
           echo "${{ env.DEPLOY_KEY }}" > deploy_key
@@ -35,17 +36,14 @@ jobs:
           rsync -chav --delete \
             -e 'ssh -i ./deploy_key -o StrictHostKeyChecking=no' \
             --exclude /deploy_key \
-            --exclude /.git/ \
-            --exclude /.github/ \
-            --exclude /node_modules/ \
             ./ ${{ env.DESTINATION }}
 
   Deploy:
-    name: Bootup Docker Container
+    name: Deploy Docker Containers
     runs-on: ubuntu-latest
     needs: [Push]
     steps:
-      - name: starting docker container
+      - name: starting docker containers
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOSTNAME }}
@@ -54,4 +52,4 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             docker ps
-            cd /root/www && docker-compose up -d
+            cd ${{ secrets.SERVER_PATH }} && docker-compose up -d
