@@ -19,7 +19,7 @@ jobs:
             docker ps
             cd /root/www && docker-compose down
             cd /root/www && docker-compose rm -f
-            
+
   Push:
     runs-on: ubuntu-latest
     needs: [Prepare]
@@ -39,7 +39,7 @@ jobs:
             --exclude /.github/ \
             --exclude /node_modules/ \
             ./ ${{ env.DESTINATION }}
-            
+
   Deploy:
     name: Bootup Docker Container
     runs-on: ubuntu-latest
