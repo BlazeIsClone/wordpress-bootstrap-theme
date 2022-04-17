@@ -40,7 +40,7 @@ services:
     ports:
       - ${LOCAL_PORT_PHPMYADMIN}:80
     environment:
-      VIRTUAL_HOST: 'phpmyadmin.blazeclone.com'
+      VIRTUAL_HOST: 'phpmyadmin.blazeclone.xyz'
     links:
       - database:database
 
