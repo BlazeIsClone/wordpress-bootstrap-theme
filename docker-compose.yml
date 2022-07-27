@@ -1,17 +1,11 @@
 version: '2'
 
 services:
-  proxy:
-    image: nginxproxy/nginx-proxy
-    ports:
-      - '8080:80'
-    volumes:
-      - /var/run/docker.sock:/tmp/docker.sock:ro
-
-  wordpress:
+  wp:
     image: wordpress:latest
+    domainname: ${DOMAIN}
     ports:
-      - '80:80'
+      - 80:80
     volumes:
       - ./config/php.conf.ini:/usr/local/etc/php/conf.d/conf.ini
       - ./wp-app:/var/www/html
@@ -24,12 +18,21 @@ services:
     depends_on:
       - db
 
+  wp-cli:
+    image: wordpress:cli
+    volumes:
+      - ./config/php.conf.ini:/usr/local/etc/php/conf.d/conf.ini
+      - ./wp-app:/var/www/html
+    depends_on:
+      - db
+      - wp
+
   db:
     image: mariadb
     ports:
-      - '3306:3306'
+      - 3306:3306
     environment:
-      db: '${DB_NAME}'
+      MARIADB_DATABASE: '${DB_NAME}'
       MARIADB_ROOT_PASSWORD: '${DB_ROOT_PASSWORD}'
     volumes:
       - ./wp-data:/docker-entrypoint-initdb.d
@@ -39,8 +42,6 @@ services:
     image: phpmyadmin/phpmyadmin
     ports:
       - ${LOCAL_PORT_PHPMYADMIN}:80
-    environment:
-      - 'VIRTUAL_HOST=phpmyadmin.blazeclone.xyz'
     links:
       - db:db
 

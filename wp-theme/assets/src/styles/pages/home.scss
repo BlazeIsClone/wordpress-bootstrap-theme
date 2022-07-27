@@ -1,13 +1,7 @@
 @import '../config/index';
 
-.index {
+.page-home {
 	h1 {
-		font-family: 'Roboto Medium';
-	}
-	a {
-		background-color: $primary-color;
-	}
-	img {
-		width: 250px;
+		font-family: 'Roboto Medium', sans-serif;
 	}
 }

@@ -10,6 +10,7 @@
 		"prestart": "docker-compose up -d",
 		"start": "gulp",
 		"stop": "docker-compose down",
+		"stop:clear": "docker-compose down -v && sudo bash cache-reset.sh",
 		"backup:database": "sudo bash backup-database.sh",
 		"backup:uploads": "sudo bash backup-uploads.sh",
 		"backup": "npm run backup:database && npm run backup:uploads",

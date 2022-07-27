@@ -29,22 +29,22 @@ define(
 define(
     'THEME_INCLUDES',
     get_stylesheet_directory() .
-    '/includes/'
+        '/includes/'
 );
 define(
     'THEME_FUNCTIONS_PATH',
     get_stylesheet_directory() .
-    '/includes/theme-functions/'
+        '/includes/theme-functions/'
 );
 define(
     'CUSTOM_POST_TYPES',
     get_stylesheet_directory() .
-    '/includes/post-types/index.php'
+        '/includes/post-types/index.php'
 );
 define(
     'THEME_PLUGIN_ACTIVATION_PLUGINS',
     get_stylesheet_directory() .
-    '/includes/required-plugins/'
+        '/includes/required-plugins/'
 );
 
 /* --------------------------- ASSETS IMPORT --------------------------- */
@@ -56,7 +56,6 @@ require __DIR__ . '/vendor/autoload.php';
 $includes = [
     'head-cleanup',
     'enqueue',
-    'timber-initialize',
     'theme-support',
     'plugins-register',
     'acf-local-json',

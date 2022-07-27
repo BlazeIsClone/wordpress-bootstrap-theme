@@ -10,18 +10,10 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  */
-get_header();
+get_header(); ?>
 
-use Timber\Timber;
+<section class="page-home">
+	<h1>Custom Bootstrap Theme</h1>
+</section>
 
-$context = Timber::context();
-
-$context['title'] = 'Theme Ready!';
-$context['paragraph'] = 'Edit index.php';
-$context['button'] = 'Admin Dashboard';
-$context['image'] = THEME_THEMEROOT . '/assets/src/images/image.png';
-$context['adminUrl'] = admin_url();
-
-Timber::render('index.twig', $context);
-
-get_footer();
+<?php get_footer();
