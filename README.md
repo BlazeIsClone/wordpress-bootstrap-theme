@@ -1,5 +1,9 @@
-## No README For Now
+# Custom WordPress Bootstrap Theme
 
-install php
-install composer
-sudo apt install zip unzip
+A minimal easy to use wordpress theme development environment with modern tooling.
+
+# Requirements
+
+- install php
+- install composer
+- sudo apt install zip unzip

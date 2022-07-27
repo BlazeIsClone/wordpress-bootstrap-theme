@@ -29,51 +29,51 @@ const browserSyncReload = done => {
 // CSS task
 const css = () =>
 	gulp
-		.src('./wp-theme/assets/src/styles/**/*.scss')
+		.src('./src/theme/assets/src/styles/**/*.scss')
 		.pipe(cache.clear())
 		.pipe(plumber())
 		.pipe(sass({ outputStyle: 'expanded' }))
-		.pipe(gulp.dest('./wp-theme/assets/dist/css/'))
+		.pipe(gulp.dest('./src/theme/assets/dist/css/'))
 		.pipe(rename({ suffix: '.min' }))
 		.pipe(postcss([autoprefixer(), cssnano()]))
-		.pipe(gulp.dest('./wp-theme/assets/dist/css/'))
+		.pipe(gulp.dest('./src/theme/assets/dist/css/'))
 		.pipe(browsersync.stream());
 
 // Transpile, concatenate and minify scripts
 const scripts = () =>
 	gulp
-		.src(['./wp-theme/assets/src/scripts/**/*'])
+		.src(['./src/theme/assets/src/scripts/**/*'])
 		.pipe(cache.clear())
 		.pipe(plumber())
 		.pipe(webpackstream(webpackconfig, webpack))
-		.pipe(gulp.dest('./wp-theme/assets/dist/js/'))
+		.pipe(gulp.dest('./src/theme/assets/dist/js/'))
 		.pipe(browsersync.stream());
 
 // Build fonts
 const fonts = () =>
 	gulp
-		.src('./wp-theme/assets/src/fonts/**/*.{ttf,woff,eot,otf,svg}')
+		.src('./src/theme/assets/src/fonts/**/*.{ttf,woff,eot,otf,svg}')
 		.pipe(cache.clear())
 		.pipe(plumber())
-		.pipe(gulp.dest('./wp-theme/assets/dist/fonts/'))
+		.pipe(gulp.dest('./src/theme/assets/dist/fonts/'))
 		.pipe(browsersync.stream());
 
 // Build fonts
 const images = () =>
 	gulp
-		.src('./wp-theme/assets/src/images/**/*.{png,jpg,jpeg,webp,ico,svg}')
+		.src('./src/theme/assets/src/images/**/*.{png,jpg,jpeg,webp,ico,svg}')
 		.pipe(cache.clear())
 		.pipe(plumber())
-		.pipe(gulp.dest('./wp-theme/assets/dist/images/'))
+		.pipe(gulp.dest('./src/theme/assets/dist/images/'))
 		.pipe(browsersync.stream());
 
 // Watch files
 const watchFiles = () => {
-	gulp.watch('./wp-theme/assets/src/styles/**/*', css);
-	gulp.watch('./wp-theme/assets/src/scripts/**/*', scripts);
-	gulp.watch('./wp-theme/assets/src/fonts/**/*', fonts);
-	gulp.watch('./wp-theme/assets/src/images/**/*', images);
-	gulp.watch('./wp-theme/**/*', browserSyncReload);
+	gulp.watch('./src/theme/assets/src/styles/**/*', css);
+	gulp.watch('./src/theme/assets/src/scripts/**/*', scripts);
+	gulp.watch('./src/theme/assets/src/fonts/**/*', fonts);
+	gulp.watch('./src/theme/assets/src/images/**/*', images);
+	gulp.watch('./src/theme/**/*', browserSyncReload);
 };
 
 // define complex tasks
