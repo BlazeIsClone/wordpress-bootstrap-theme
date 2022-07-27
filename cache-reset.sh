@@ -1,6 +1,6 @@
 #!/bin/bash
 
-_dir="wp-app/"
+_dir="src/app/"
 
 echo 'Clearing wp app cache'
 cd $_dir && rm -rf * .htaccess

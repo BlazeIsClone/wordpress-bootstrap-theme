@@ -21,9 +21,9 @@ function theme_required_plugins_register()
             'required'     => true,
         ],
         [
-            'name'   => 'Advanced Custom Fields Pro', // The plugin name
-            'slug'   => 'advanced-custom-fields-pro', // The plugin slug (typically the folder name)
-            'source' => THEME_PLUGIN_ACTIVATION_PLUGINS . 'advanced-custom-fields-pro.zip', // The plugin source
+            'name'               => 'Advanced Custom Fields Pro', // The plugin name
+            'slug'               => 'advanced-custom-fields-pro', // The plugin slug (typically the folder name)
+            'source'             => THEME_PLUGIN_ACTIVATION_PLUGINS . 'advanced-custom-fields-pro.zip', // The plugin source
             'required'           => true, // If false, the plugin is only 'recommended' instead of required
             'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher, otherwise a notice is presented
             'force_activation'   => true, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch

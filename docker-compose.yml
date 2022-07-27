@@ -8,8 +8,8 @@ services:
       - 80:80
     volumes:
       - ./config/php.conf.ini:/usr/local/etc/php/conf.d/conf.ini
-      - ./wp-app:/var/www/html
-      - ./wp-theme/:/var/www/html/wp-content/themes/wp-theme
+      - ./src/app:/var/www/html
+      - ./src/theme/:/var/www/html/content/themes/theme
     environment:
       WORDPRESS_DB_HOST: db
       WORDPRESS_DB_NAME: '${DB_NAME}'
@@ -22,7 +22,7 @@ services:
     image: wordpress:cli
     volumes:
       - ./config/php.conf.ini:/usr/local/etc/php/conf.d/conf.ini
-      - ./wp-app:/var/www/html
+      - ./src/app:/var/www/html
     depends_on:
       - db
       - wp
@@ -35,7 +35,7 @@ services:
       MARIADB_DATABASE: '${DB_NAME}'
       MARIADB_ROOT_PASSWORD: '${DB_ROOT_PASSWORD}'
     volumes:
-      - ./wp-data:/docker-entrypoint-initdb.d
+      - ./src/data:/docker-entrypoint-initdb.d
       - db:/var/lib/mysql
 
   phpmyadmin:

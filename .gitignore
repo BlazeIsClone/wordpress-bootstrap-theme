@@ -2,19 +2,19 @@
 node_modules/*
 
 # Core
-wp-app/*
-!wp-app/.gitkeep
+src/app/*
+!src/app/.gitkeep
 
 # Backups
-wp-data/*
-!wp-data/.gitkeep
+src/data/*
+!src/data/.gitkeep
 
-wp-uploads/*
-!wp-uploads/.gitkeep
+src/uploads/*
+!src/uploads/.gitkeep
 
 # Distribution files
-wp-theme/assets/dist/*
-!wp-theme/assets/dist/.gitkeep
+src/theme/assets/dist/*
+!src/theme/assets/dist/.gitkeep
 
 # Log files
 *.cache
