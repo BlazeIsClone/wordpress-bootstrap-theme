@@ -1,8 +1,8 @@
 # Built files
-wp-theme/assets/dist/
+src/theme/assets/dist/
 
 # Core files
-wp-app/
+src/app/
 
 # All php files
 *.php

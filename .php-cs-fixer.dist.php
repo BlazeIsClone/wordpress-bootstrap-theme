@@ -1,10 +1,11 @@
 <?php
 
 $finder = PhpCsFixer\Finder::create()
-    ->exclude('wp-app')
+    ->in(__DIR__)
+    ->exclude('src/app')
+    ->exclude('src/data')
     ->exclude('node_modules')
-    ->exclude('wp-theme/vendor')
-    ->in(__DIR__);
+    ->exclude('src/theme/vendor');
 
 $config = new PhpCsFixer\Config();
 
